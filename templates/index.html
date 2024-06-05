@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Danielle</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8">
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+      >
+        {{ range .Perfume }}
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <a href="/article/{{ .Title }}">
+            <img
+              src="{{ .Image }}"
+              alt="{{ .Title }}"
+              class="w-full h-64 object-cover rounded-t-lg"
+            />
+          </a>
+          <div class="p-4">
+            <h3 class="text-xl font-bold mb-1">{{ .Title }}</h3>
+            <a
+              href="{{ .Unsplash }}"
+              target="_blank"
+              class="text-sm text-blue-500 hover:text-blue-700 hover:underline mb-4 block"
+              >View on Unsplash</a
+            >
+            <p class="text-gray-700">{{ .Description }}</p>
+          </div>
+        </div>
+        {{ end }}
+      </div>
+
+      <footer class="text-center text-gray-500 mt-8">
+        &copy; 2024 Danielle. All rights reserved
+        <p class="text-sm text-gray-600 mt-4">
+          I do not own the images displayed. Credit is given to their rightful
+          owners
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
